@@ -31,7 +31,7 @@ public class Dialog {
                 } else if (choice == 2) {
                     //TODO
                 } else if (choice == 3) {
-                    //TODO
+                    rentalOfficeManager();
                 } else if (choice == 4) {
                     modelManager();
                 } else if (choice == 5) {
@@ -61,6 +61,11 @@ public class Dialog {
     public void modelManager(){
         ModelDialog modelDialog = new ModelDialog();
         modelDialog.getStarted();
+    }
+
+    public void rentalOfficeManager(){
+        RentalOfficeDialog rentalOfficeDialog = new RentalOfficeDialog();
+        rentalOfficeDialog.getStarted();
     }
 
 
