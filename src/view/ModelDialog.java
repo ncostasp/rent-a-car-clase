@@ -17,7 +17,7 @@ public class ModelDialog {
     public void getStarted(){
         do {
             System.out.println("\n************************** Model Manager ********************************");
-            System.out.println("\n\t1. Create Model.\t\t\t\t4. Search Model.");
+            System.out.println("\n\t1. Create Model.\t\t\t\t4. Cars in Model.");
             System.out.println("\n\t2. Remove Model.\t\t\t\t5. See All Models.");
             System.out.println("\n\t3. Update Model.\t\t\t\t0. Back.");
             System.out.println("\n**************************************************************************");
@@ -49,7 +49,7 @@ public class ModelDialog {
                     scanner.nextLine();
                     System.out.println("Id: ");
                     Long id = scanner.nextLong();
-                    System.out.println(modelController.findById(id));
+                    System.out.println(modelController.findById(id).getCars());
                 } else if (choice == 5) {
                     for (Object model : modelController.findAll()) {
                         System.out.println(model);

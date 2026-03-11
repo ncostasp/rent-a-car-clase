@@ -1,6 +1,7 @@
 package service;
 
 import model.Car;
+import model.Model;
 import model.RentalOffice;
 import repository.CarRepository;
 import repository.ICarRepository;
@@ -24,6 +25,8 @@ public class CarServiceImpl implements ICarService{
         repository.add(car);
         RentalOffice rentalOffice= rentalOfficeService.findById(idRentalOffice);
         rentalOffice.addCar(car);
+        Model model = modelService.findById(idModel);
+        model.addCar(car);
     }
 
     public void deleteById(Long id) {
