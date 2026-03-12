@@ -34,6 +34,7 @@ public class RentalOfficeController {
 
 
     public void update(Long id, String address, int feeForDelivery){
+
         service.update(id, address, feeForDelivery);
     }
 

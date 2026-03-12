@@ -14,6 +14,7 @@ public class Dialog {
     private ClientDialog clientDialog;
     private ModelDialog modelDialog;
     private RentalOfficeDialog rentalOfficeDialog;
+    private RentalDialog rentalDialog;
     private CarDialog carDialog;
 
     public Dialog() {
@@ -25,6 +26,8 @@ public class Dialog {
         modelDialog.addInitialModels();
         rentalOfficeDialog.addInitialRentalOffices();
         carDialog.addInitialCars();
+        rentalDialog = new RentalDialog();
+        rentalDialog.addInitialRentals();
 
     }
 
@@ -49,7 +52,7 @@ public class Dialog {
                 } else if (choice == 4) {
                     modelManager();
                 } else if (choice == 5) {
-                    //TODO
+                    rentalManager();
                 }else if(choice==0) {
                     System.out.println("Bye!!");
                     System.exit(0);;
@@ -82,6 +85,10 @@ public class Dialog {
 
     public void CarManager(){
         carDialog.getStarted();
+    }
+
+    public void rentalManager(){
+        rentalDialog.getStarted();
     }
 
 

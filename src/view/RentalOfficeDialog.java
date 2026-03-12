@@ -26,28 +26,33 @@ public class RentalOfficeDialog {
             try {
                 if(choice == 1){
                     scanner.nextLine();
-                    System.out.println("Address: ");
+                    System.out.println("Enter an Address: ");
                     String address = scanner.nextLine();
-                    System.out.println("FeeForDelivery: ");
+                    System.out.println("Enter a FeeForDelivery: ");
                     int feeForDelivery = scanner.nextInt();
                     rentalOfficeController.add(address, feeForDelivery);
+                    System.out.println("New rental office created with address " + address +
+                            " and delivery fee " + feeForDelivery);
                 } else if (choice == 2) {
-                    System.out.println("RentalOffice ID: ");
-                    int id = scanner.nextInt();
-                    rentalOfficeController.deleteById((long) id);
+                    System.out.println("Enter a RentalOffice ID: ");
+                    Long id = scanner.nextLong();
+                    rentalOfficeController.deleteById(id);
                 } else if (choice == 3) {
                     System.out.println(rentalOfficeController.findAll());
-                    System.out.println("RentalOffice ID: ");
-                    int id = scanner.nextInt();
+                    System.out.println("RentalOffice ID to modify: ");
+                    long id = scanner.nextLong();
                     scanner.nextLine();
-                    System.out.println("Address: ");
+                    System.out.println("Enter new Address: ");
                     String address = scanner.nextLine();
-                    System.out.println("FeeForDelivery: ");
+                    System.out.println("Enter new FeeForDelivery: ");
                     int feeForDelivery = scanner.nextInt();
-                    rentalOfficeController.update((long) id, address, feeForDelivery);
+                    System.out.println("Rental office with id " + id +
+                            " has been updated with address " + address +
+                            " and delivery fee " + feeForDelivery);
+                    rentalOfficeController.update(id, address, feeForDelivery);
                 } else if (choice == 4) {
                     scanner.nextLine();
-                    System.out.println("Id: ");
+                    System.out.println("Enter an Id: ");
                     Long id = scanner.nextLong();
                     System.out.println(rentalOfficeController.findById(id).getCars());
                 } else if (choice == 5) {

@@ -34,33 +34,40 @@ public class CarDialog {
             try {
                 if(choice == 1){
                     scanner.nextLine();
-                    System.out.println("LicensePlate: ");
+                    System.out.println("Enter a LicensePlate: ");
                     String licensePlate = scanner.nextLine();
                     System.out.println(modelController.findAll());
-                    System.out.println("IdModel: ");
+                    System.out.println("Enter a IdModel: ");
                     Long idModel = scanner.nextLong();
                     System.out.println(rentalOfficeController.findAll());
-                    System.out.println("IdRentalOffice: ");
+                    System.out.println("Enter a IdRentalOffice: ");
                     Long idRentalOffice = scanner.nextLong();
+                    System.out.println("New car created with license plate " + licensePlate +
+                            ", model " + modelController.findById(idModel) +
+                            ", at rental office " + rentalOfficeController.findById(idRentalOffice));
                     carController.add(licensePlate, idModel, idRentalOffice);
                 } else if (choice == 2) {
                     System.out.println("Car ID: ");
-                    int id = scanner.nextInt();
-                    carController.deleteById((long) id);
+                    Long id = scanner.nextLong();
+                    carController.deleteById(id);
                 } else if (choice == 3) {
                     System.out.println(carController.findAll());
-                    System.out.println("Car ID: ");
-                    int id = scanner.nextInt();
+                    System.out.println("Car ID to modify: ");
+                    Long id = scanner.nextLong();
                     scanner.nextLine();
-                    System.out.println("LicensePlate: ");
+                    System.out.println("Enter new LicensePlate: ");
                     String licensePlate = scanner.nextLine();
                     System.out.println(modelController.findAll());
-                    System.out.println("IdModel: ");
+                    System.out.println("Enter new IdModel: ");
                     Long idModel = scanner.nextLong();
                     System.out.println(rentalOfficeController.findAll());
-                    System.out.println("IdRentalOffice: ");
+                    System.out.println("Enter new IdRentalOffice: ");
                     Long idRentalOffice = scanner.nextLong();
-                    carController.update((long) id, licensePlate, (long)idModel, (long) idRentalOffice);
+                    System.out.println("Car with id " + id +
+                            " has been updated with license plate " + licensePlate +
+                            ", model " + modelController.findById(idModel) +
+                            ", at rental office " + rentalOfficeController.findById(idRentalOffice));
+                    carController.update(id, licensePlate, idModel,idRentalOffice);
                 } else if (choice == 4) {
                     scanner.nextLine();
                     System.out.println("Id: ");

@@ -1,5 +1,6 @@
 package controller;
 
+import model.Car;
 import model.Client;
 import service.ClientServiceImpl;
 import service.IClientService;
@@ -18,6 +19,11 @@ public class ClientController {
 
     }
 
+
+    public Client findById(Long id){
+        return service.findById(id);
+    }
+
     public void deleteById(Long id){
         service.deleteById(id);
 
@@ -26,6 +32,8 @@ public class ClientController {
     public ArrayList findAll(){
         return service.findAll();
     }
+
+
 
     public Client findByDni(String dni){
         return service.findByDni(dni);

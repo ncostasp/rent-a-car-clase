@@ -1,6 +1,8 @@
 package view;
 
 import controller.ClientController;
+import model.Client;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -26,29 +28,36 @@ public class ClientDialog {
             try {
                 if(choice == 1){
                     scanner.nextLine();
-                    System.out.println("Dni: ");
+                    System.out.println("Enter a Dni: ");
                     String dni = scanner.nextLine();
-                    System.out.println("Name: ");
+                    System.out.println("Enter a Name: ");
                     String name = scanner.nextLine();
-                    System.out.println("Surname: ");
+                    System.out.println("Enter a Surname: ");
                     String surname = scanner.nextLine();
+                    System.out.println("New client created with DNI " + dni +
+                            ", name " + name +
+                            ", surname " + surname) ;
                     clientController.add(dni, name, surname);
                 } else if (choice == 2) {
                     System.out.println("Client ID: ");
-                    int id = scanner.nextInt();
-                    clientController.deleteById((long) id);
+                    Long id = scanner.nextLong();
+                    clientController.deleteById(id);
                 } else if (choice == 3) {
                     System.out.println(clientController.findAll());
-                    System.out.println("Client ID: ");
-                    int id = scanner.nextInt();
+                    System.out.println("Client ID to modify: ");
+                    Long id = scanner.nextLong();
                     scanner.nextLine();
-                    System.out.println("Dni: ");
+                    System.out.println("Enter new Dni: ");
                     String dni = scanner.nextLine();
-                    System.out.println("Name: ");
+                    System.out.println("Enter new Name: ");
                     String name = scanner.nextLine();
-                    System.out.println("Surname: ");
+                    System.out.println("Enter new Surname: ");
                     String surname = scanner.nextLine();
-                    clientController.update((long) id, dni, name, surname);
+                    System.out.println("Client with id " + id +
+                            " has been updated with DNI " + dni +
+                            ", name " + name +
+                            ", surname " + surname);
+                    clientController.update(id, dni, name, surname);
                 } else if (choice == 4) {
                     scanner.nextLine();
                     System.out.println("Dni: ");

@@ -1,22 +1,27 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Client {
     private Long id;
     private String dni;
     private String name;
     private String surname;
+    private ArrayList<Rental> rentals;
 
     public Client(Long id, String dni, String name, String surname) {
         this.id = id;
         this.dni = dni;
         this.name = name;
         this.surname = surname;
+        this.rentals = new ArrayList<>();
     }
 
     public Client(String dni, String name, String surname) {
         this.dni = dni;
         this.name = name;
         this.surname = surname;
+        this.rentals = new ArrayList<>();
     }
 
     public Long getId() {
@@ -49,6 +54,14 @@ public class Client {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public ArrayList<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void addRental(Rental rental) {
+        rentals.add(rental);
     }
 
     @Override
